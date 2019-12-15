@@ -12,11 +12,7 @@
 
 using namespace std;
 
-template <typename S, typename T>
-ostream& operator<<(ostream& s, const pair<S,T>& p) {
-  s << "{" << p.first << "," << p.second << "}";
-  return s;
-}
+template <typename S, typename T> ostream& operator<<(ostream& s, const pair<S,T>& p);
 
 #define container_output(container) \
   template <typename T> ostream& operator<<(ostream& s, const container<T>& v) \
@@ -31,6 +27,12 @@ ostream& operator<<(ostream& s, const pair<S,T>& p) {
   }
 container_output(vector);
 container_output(set);
+
+template <typename S, typename T>
+ostream& operator<<(ostream& s, const pair<S,T>& p) {
+  s << "{" << p.first << "," << p.second << "}";
+  return s;
+}
 
 #define container_product(container) \
   template <typename T> T product(const container<T>& v) { \

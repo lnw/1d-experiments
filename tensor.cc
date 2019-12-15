@@ -268,6 +268,8 @@ string tensor_4::to_listplot(const system3d& sys) const {
 
 
 tensor_2 matmul(const tensor_2& T1, const tensor_2& T2, const char nt1, const char nt2){
+  assert(nt1 == 'N' || nt1 == 'T');
+  assert(nt2 == 'N' || nt2 == 'T');
   char NTchar1 = nt1, NTchar2 = nt2;
   int N1, N2, N3, N4;
   int N1_init = T1.get_dims()[1],
@@ -275,13 +277,13 @@ tensor_2 matmul(const tensor_2& T1, const tensor_2& T2, const char nt1, const ch
   if(nt1=='N'){
     N1 = T1.get_dims()[1]; N2 = T1.get_dims()[0];
   }
-  else if(nt1=='T'){
+  else { // if(nt1=='T'){
     N1 = T1.get_dims()[0]; N2 = T1.get_dims()[1];
   }
   if(nt2=='N'){
     N3 = T2.get_dims()[1]; N4 = T2.get_dims()[0];
   }
-  else if(nt2=='T'){
+  else { // if(nt2=='T'){
     N3 = T2.get_dims()[0]; N4 = T2.get_dims()[1];
   }
 
