@@ -54,6 +54,7 @@ tensor_square_sym get_sci_matrix(const system1d& sys, const state1d& S, timing& 
   cout << "sci matrix allocated" << endl;
 
   // get matrix elements <\psi_aa^tu|H|\psi_aa^rs>
+#pragma omp parallel for default(none) shared(sci_matrix, one_el_integrals, dets, times)
   for(size_t det1=0; det1<n_dets; det1++){
     for(size_t det2=det1; det2<n_dets; det2++){
       const size_t r=dets[det1].first,
@@ -145,6 +146,7 @@ tensor_square_sym get_dci_matrix(const system1d& sys, const state1d& S, timing& 
   cout << "dci matrix allocated" << endl;
 
   // get matrix elements <\psi_aa^tu|H|\psi_aa^rs>
+#pragma omp parallel for default(none) shared(dci_matrix, one_el_integrals, dets, times)
   for(size_t det1=0; det1<n_dets; det1++){
     for(size_t det2=det1; det2<n_dets; det2++){
       const size_t r=dets[det1].first,
@@ -308,6 +310,7 @@ tensor_square_sym get_sdci_matrix(const system1d& sys, const state1d& S, timing&
   cout << "sdci matrix allocated" << endl;
 
   // get matrix elements <\psi_aa^tu|H|\psi_aa^rs>
+#pragma omp parallel for default(none) shared(sdci_matrix, one_el_integrals, dets, times)
   for(size_t det1=0; det1<n_dets; det1++){
     for(size_t det2=det1; det2<n_dets; det2++){
       const size_t r=dets[det1].first,
@@ -544,6 +547,7 @@ tensor_square_sym get_sdci_matrix(const system1d& sys, const state1d& S, timing&
   cout << "sdci matrix allocated" << endl;
 
   // get matrix elements <\psi_aa^tu|H|\psi_aa^rs>
+#pragma omp parallel for default(none) shared(sdci_matrix, one_el_integrals, dets, times)
   for(size_t det1=0; det1<n_dets; det1++){
     for(size_t det2=det1; det2<n_dets; det2++){
       const size_t r=dets[det1].first,

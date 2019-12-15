@@ -108,7 +108,7 @@ double get_4c2eintegral_mo_local_ortho_grid(const system1d& sys, const state1d& 
 
 // calc (ij|kl) where i,j,k,l are MOs which are expanded in (mu nu|lambda sigma) which are LIP
 double get_4c2eintegral_mo_precalc(const system1d& sys, const state1d& S, size_t mo_i, size_t mo_j, size_t mo_k, size_t mo_l, timing& times){
-  times.ind_up();
+//  times.ind_up();
   auto t0 = Clock::now();
 
   assert(S.has_local_mo_coeffs);
@@ -181,8 +181,8 @@ double get_4c2eintegral_mo_precalc(const system1d& sys, const state1d& S, size_t
   }
 
   auto t1 = Clock::now();
-  times.append_item("4c2e mo integral (precalc)", t1 - t0);
-  times.ind_down();
+//  times.append_item("4c2e mo integral (precalc)", t1 - t0);
+//  times.ind_down();
 
   return int_4c2e;
 }
