@@ -25,7 +25,7 @@ int main(int ac, char **av) {
   auto t0 = Clock::now();
 
   if (ac != 6) {
-    cout << "n_cells, cell_width, system_width, n_funcs_per_cell" << endl;
+    cout << "n_cells, cell_width, system_width, n_funcs_per_cell, interaction_scaling" << endl;
     cout << "try ./ho-1d 256 0.125 32 7 1.0" << endl;
     cout << "try ./ho-1d 64 0.25 16 5 1.0" << endl;
     cout << "try ./ho-1d 32 0.5 16 5 1.0" << endl;
